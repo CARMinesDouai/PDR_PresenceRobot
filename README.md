@@ -21,6 +21,7 @@ Le script main.sh permet de:
   -Lancer rviz avec sa configuration d'abonnement pré-définit (/map, /pos..). 
   
  Remarque: toutes les configurations réseaux (hors ethernet) se font sur le reseau "robots".
+ De plus, pour activer la camera du haut le plug-in QuickTime et safari sont neccesaire. Les flux vidéos ne sont pas recuperés sur Mozzilla. 
   
 .Dans le répertoire map on trouve différentes cartes de l'étage de Lahure permettant de faire des tests sur le robots (et aussi des cartes mofidiées avec un éditeur: repasser en noir des murs, protéger du vide...).
 Ces cartes sont établis à l'aide de Gmapping: roslaunch gmapping.launch. 
