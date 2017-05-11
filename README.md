@@ -15,20 +15,19 @@ Pré-requis :
 - Ubuntu
 - ROS Kinetic
 - Robulab drivers
-- ...
+- Module Pharo: relie l'ordinateur windows CE a ROS sur le LINUX
 
 
 TODO
 
 	git clone ....
-	mv
-	cd
+	mv /home/bot/
 
 ## Lancer la démo
 
 TODO
 
-	cd xxx
+	cd /home/bot/PDR/launcher
 	./main.sh
 	
 
