@@ -70,7 +70,7 @@ Ces cartes sont établis à l'aide de Gmapping: roslaunch gmapping.launch.
 ## Répertoire `params`
 
 Le dossier params contients toutes les configurations de move_base (trajectoire, position, vitesses...).
-NB: Nous avions des erreurs des trajectoires lors des déplacements du robot avec les objectifs d'arrivées (le robot voulait passer à travers les murs), que nous avons résolues en rajoutant notamment une taille pour le robot de 50 cm (robot_radius).
+NB: Nous avions des erreurs des trajectoires lors des déplacements du robot avec les objectifs d'arrivées (le robot voulait passer à travers les murs), que nous avons résolues en rajoutant notamment une taille pour le robot de 50 cm (robot_radius).Expliquer le dossier de parametre etc...
 
 ## Répertoire `rviz`
 
