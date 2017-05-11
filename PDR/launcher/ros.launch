@@ -1,0 +1,29 @@
+<launch>
+
+	<!-- RosLaunch -->
+	<arg name="bringup_robulab" default="true"/>
+	<include file="$(find robulab)/launch/bringup.launch" if="$(arg bringup_robulab)"/>
+
+	<!-- Carte -->
+	<node pkg="map_server" type="map_server" name="map_server" args="/home/bot/PDR/map/map.yaml" />
+
+	<!-- Amcl -->
+	<include file="$(find amcl)/examples/amcl_diff.launch" />
+
+	<!-- Move_Base --> 
+	<node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+		<param name="controller_frequency" value="10.0"/>
+		<remap from="base_scan" to="scan"/>
+		<remap from="cmd_vel" to="command_velocity"/>
+		<rosparam file="/home/bot/PDR/params/costmap_common_robulab.yaml" command="load" ns="global_costmap"/>
+		<rosparam file="/home/bot/PDR/params/global_costmap.yaml" command="load"/>
+		<rosparam file="/home/bot/PDR/params/navfn.yaml" command="load"/> 
+		<rosparam file="/home/bot/PDR/params/costmap_common_robulab.yaml" command="load" ns="local_costmap"/>
+		<rosparam file="/home/bot/PDR/params/local_costmap.yaml" command="load"/>
+		<rosparam file="/home/bot/PDR/params/trajectory_planner_robulab.yaml" command="load"/>
+	</node>
+
+	<!-- web -->
+	<include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch"/>
+  
+</launch>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	
+
+	<head>
+		<meta charset="utf-8" />
+
+		<!-- Assets -->
+		<script type="text/javascript" src="./assets/js/easeljs.min.js"></script>
+		<script type="text/javascript" src="./assets/js/eventemitter2.min.js"></script>
+		<script type="text/javascript" src="./assets/ros/roslib.min.js"></script>
+		<script type="text/javascript" src="./assets/ros/ros2d.min.js"></script>
+		<script type="text/javascript" src="./assets/ros/nav2d.min.js"></script>
+		<!-- /Assets -->
+
+
+		<!-- jQuery -->
+		<script type="text/javascript" src="./assets/jquery/jquery-2.2.1.min.js"></script>
+		<!-- /jQuery -->
+
+
+		<!-- Bootstrap -->
+		<script type="text/javascript" src="./assets/bootstrap/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="./assets/bootstrap/css/bootstrap.min.css">
+		<!-- /Bootstrap -->
+
+
+		<!-- Styles -->
+		<link rel="stylesheet" type="text/css" href="./css/main.css">
+		<link rel="stylesheet" type="text/css" href="./css/common.css">
+		<!-- /Styles -->
+
+
+		<!-- Scripts -->
+		<script type="text/javascript" src="./js/vmap.js"></script>
+		<script type="text/javascript" src="./js/map.js"></script>
+		<script type="text/javascript" src="./js/viewer.js"></script>
+		<script type="text/javascript" src="./js/index.js"></script>
+		<!-- /Scripts -->
+	</head>
+
+
+
+	<body>
+		<!-- Navbar -->
+		<nav class="navbar navbar-default navbar-fixed-top">
+		    <div class="container">
+
+		        <div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<div class="navbar-brand">Rob</div>
+				</div>
+
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+
+						<li><a rel="external" id="nav_map"><i class="glyphicon glyphicon-home"></i> Destination</a></li>
+
+						<li class="dropdown" id="nav_cam">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-list"></i> Caméras<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a rel="external"  id="nav_cam_haut"> Caméra du haut</a></li>
+								<li><a rel="external"  id="nav_cam_bas"> Caméra du bas</a></li>
+							</ul>
+						</li>
+
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- /Navbar -->
+
+
+
+
+
+		<!-- Page -->
+		<div id="page">
+
+			<!-- vue Carte -->
+			<div id="div_map">
+				<div class="row">
+					<div class="col-md-8">
+						<h1>Carte</h1>
+						<div id="viewer">
+							<div id="map"></div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<h2>Liste des destinations</h2>
+						<div id="dest"></div>
+					</div>
+				</div>
+
+				<div class="pad">
+					<div id="bt_top">▴</div>
+					<div id="bt_left">◂</div>
+					<div id="bt_right">▸</div>
+					<div id="bt_bottom">▾</div>
+				</div>
+			</div>
+			<!-- /vue Carte -->
+
+
+
+
+			<!-- vue Caméra du haut -->
+			<div id="div_cam_haut">
+				<h1>Caméra du haut</h1>
+			</div>
+			<!-- /vue Caméra du haut -->
+
+
+
+
+			<!-- vue Caméra du bas -->
+			<div id="div_cam_bas">
+				<h1>Caméra du bas</h1>
+			</div>
+			<!-- /vue Caméra du bas -->
+
+		</div>
+		<!-- /Page -->
+
+
+
+		<footer>
+			<div class="container-fluid">
+				<div class="row">
+					<p id="Mention">
+						Mathias DELAHAYE et Alexandre CODACCIONI - 2017 (c)
+					</p>
+				</div>
+			</div>
+		</footer>
+
+
+	</body>
+</html>
