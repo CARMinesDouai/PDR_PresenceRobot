@@ -53,9 +53,9 @@ Permet de :
 Permet de lancer : 
 
 - `bringup.launch` (drivers du robot: odométrie, laser, ...)
-- `mapserver` qui permet de récuperer la carte avec ,
+- `mapserver` qui permet de récuperer la carte,
 - `amcl` TODO, 
-- `move_base` qui est également un fichier launch permettant de TODO, 
+- `move_base` qui est également un fichier launch permettant de définir des destinations pour le robot et ainsi de le faire se deplacer seule, 
 - une web socket sur le port 9090 permet l'accès à l'interface web avec la carte pour commander le robot à distance (`IP_ROBOT:8080`). Exemple: 10.1.16.57:8080
   
 *Remarque*: toutes les configurations réseaux (hors ethernet) se font sur le reseau "robots".
