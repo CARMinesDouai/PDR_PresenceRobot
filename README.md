@@ -32,6 +32,7 @@ NB: Nous avions des erreurs des trajectoires lors des déplacements du robot ave
 .Le dossier rviz contient la configuration rviz permettant de lancer toutes les options requises ainsi que les abonnements de cette interface graphique pour déplacer le robot (position, trajectoire, "goal"...).
 
 .Le dossier web contient les fichiers de programation de l'interface WEB de contrôle. 
+Cette interface permet de repérer le robot sur la carte, définir une destination, visualiser la trajectoire du robot et visualiser les cameras du robot. 
 
 
 Pistes d'améliorations: 
