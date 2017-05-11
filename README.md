@@ -89,6 +89,7 @@ Cette interface permet de repérer le robot sur la carte, définir une destinati
 - Tester le robot avec de meilleurs cameras 
 - Configurer des deplacements automatiques en relations avec un emploi du temps d'un élève (ce qui necessiterait un connexion utilisateur)
 - Lancer en simultané gmapping avec le scan laser et les déplacements move_base sur la carte pour affiner la carte pendant les deplacements du robot
-
+- Régler les petits problemes d'affichage de trajectoire sur l'interface
+- Etre sûr que le robot prenne le chemin le plus court
 
 
