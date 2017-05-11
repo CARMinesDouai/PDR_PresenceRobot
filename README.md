@@ -23,8 +23,8 @@ Récupération et configuration du robot :
 - adapter les liens des fichiers ./PDR/launcher/main.sh et ./PDR/launcher/ros.launch, pour que les noms d'utilisateurs concordent
 - toujours dans le fichier ./PDR/launcher/main.sh, adapter le nom des interfaces
 
-git clone ....
-mv /home/bot/
+		git clone ....
+		mv /home/bot/
 
 ## Lancer la démo
 
