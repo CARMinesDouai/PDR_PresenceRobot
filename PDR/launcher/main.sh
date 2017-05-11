@@ -32,7 +32,7 @@ echo "NAT activé"
 # Tue les processus eventuellement restant
 kill -9 `pidof /home/bot/PhaROS-ws/src/robulabdriver/vm/pharo`
 
-# Lance le noyeau ROS
+# Lance le noyau ROS
 roslaunch /home/bot/PDR/launcher/ros.launch &
 sleep 10
 echo "ROS activé"
