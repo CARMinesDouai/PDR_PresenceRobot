@@ -16,6 +16,7 @@ Pré-requis :
 - ROS Kinetic
 - Robulab drivers
 - Module Pharo: relie l'ordinateur windows CE à ROS sur le LINUX
+- 2 interfaces réseaux
 
 
 TODO
