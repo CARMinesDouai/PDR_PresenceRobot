@@ -84,11 +84,14 @@ Cette interface permet de repérer le robot sur la carte, définir une destinati
 # Pistes d'améliorations
 
 - Scanner l'interieur des salles de cours et rentrer les coordonnées de ces salles dans l'interface graphique pour avoir une gestion complète. 
-- Mettre en place un système d'échange, comme un micro avec des enceintes ou un chat,  pour intéragir avec les gens d'une salle
-- Tester le robot avec de meilleurs cameras 
-- Configurer des deplacements automatiques en relations avec un emploi du temps d'un élève (ce qui necessiterait un connexion utilisateur)
+- Mettre en place un système d'échange, comme un micro avec des enceintes ou un chat,  pour intéragir avec les personnes d'une salle
+- Tester le robot avec de meilleurs cameras: meilleure intégration des caméras avec angles de rotation et zoom, caméra 3D
+ - Jonction avec la structure de l'école pour que le robot aille automatiquement dans la bonne salle à la bonne heure (absence prévenue à l’avance) avec identification LDAP
 - Lancer en simultané gmapping avec le scan laser et les déplacements move_base sur la carte pour affiner la carte pendant les deplacements du robot
 - Régler les petits problemes d'affichage de trajectoire sur l'interface
 - Etre sûr que le robot prenne le chemin le plus court
+ - Ecran tactile pour communiquer (résolution d'exercice à distance) ou lever une main virtuelle ou autre signe distinctif
+ - Intégration dans le sol d'inductances pour recharger le robot sans fils et ainsi améliorer son autonomie (voire même du CPL sur inductance)
+
 
 
