@@ -82,6 +82,7 @@ De plus, pour activer la camera du haut le plug-in QuickTime et Safari sont necc
 Dans le répertoire map on trouve différentes cartes de l'étage de Lahure permettant de faire des tests sur le robots (et aussi des cartes mofidiées avec un éditeur: repasser en noir des murs, protéger du vide...).
 Ces cartes sont établis à l'aide de Gmapping: roslaunch gmapping.launch. 
 Pour acquérir la carte, il faut executer:
+
 `$ ~/Pharo-WS/src/robulab_gmapping/launch/gmapping.launch`
 
 
