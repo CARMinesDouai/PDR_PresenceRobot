@@ -2,7 +2,7 @@
 
 *Authors*: Alexandre Codaccioni et Mathias Delahaye Promotion 2018
 
-Ce dossier présente plusieurs fichiers permmettant la mise en mouvement du robot, le contrôle à distance sur carte, la géolocalisation du robot et la visualisation de la caméra.
+Ce dossier présente plusieurs fichiers permmettant la mise en mouvement du robot, le contrôle à distance de ce dernier sur une carte en 2D, sa géolocalisation ainsi que la visualisation de son environnement via les caméras installées.
 
 ## Aperçu de l'interface
 
@@ -12,21 +12,21 @@ Ce dossier présente plusieurs fichiers permmettant la mise en mouvement du robo
 
 Pré-requis :
 
-- Ubuntu
+- Un ordinateur portable équipé d'une distribution Ubuntu comportant au moins deux interfaces réseau, dont l'une est de type Ethernet
 - ROS Kinetic
 - Robulab drivers
-- Module Pharo: relie l'ordinateur windows CE à ROS sur le LINUX
-- 2 interfaces réseaux
+- Module Pharo qui fait la jonction entre l'ordinateur embarqué au sein du robot (un windows CE qui gère le hardware, ie moteurs, lasers, etc...) et le système ROS installé sur le PC portable équipé d'Ubuntu
 
+Récupération et configuration du robot :
 
-TODO
+- récupération du dépôt que l'on place dans le dossier utilisateur (/home/nom_user/)
+- adapter les liens des fichiers ./PDR/launcher/main.sh et ./PDR/launcher/ros.launch, pour que les noms d'utilisateurs concordent
+- toujours dans le fichier ./PDR/launcher/main.sh, adapter le nom des interfaces
 
 	git clone ....
 	mv /home/bot/
 
 ## Lancer la démo
-
-TODO
 
 	cd /home/bot/PDR/launcher
 	./main.sh
@@ -36,9 +36,10 @@ TODO
 # Détails Techniques
 
 Le répertoire `PDR/launcher` contient deux fichiers: `main.sh` et `ros.launch`.
+
 Pour ce qui est de la configuration réseau, les fichiers à éditer sont :
-- /home/bot/PDR/launcher/main.sh (le début du fichier)
-- /home/bot/PDR/web/app.js (le début du fichier)
+- `/home/bot/PDR/launcher/main.sh (le début du fichier)`
+- `/home/bot/PDR/web/app.js (le début du fichier)`
 - la configuration machine
 
 Actuellement, le PC doit être connecté à :
@@ -46,22 +47,21 @@ Actuellement, le PC doit être connecté à :
 - et sur un réseau Wifi (pour le réseau robots, l'adresse IP de la machine est 10.1.16.57, c'est à cette adresse qu'est accessible le site web sur le port non standard, mais presque, 8080)
 
 Pour ce qui est des paramètres du robot :
-- /home/bot/PDR/params/*
+- `/home/bot/PDR/params/*`
 
 Pour ce qui est des topics à lancer ou autres noeuds, les lancements se font dans le fichier :
-- /home/bot/PDR/launcher/ros.launch
+- `/home/bot/PDR/launcher/ros.launch`
 
 
 ## `main.sh`
 
 Permet de :
-
 - Charger la configuration réseaux pour le port Ethernet (enp0s25) (adresse ip et masque),
-- Configurer le NAT (config des cameras sur les port 90 (celle du bas) et 80 (celle du haut)),
-	- TODO: mieux expliquer ici. maintenant localhost:90 est redirigé vers `IP_CAMERA_BASSE:90` ?
+- Configurer le NAT : On a, sur le réseau de l'école, ADRESSE_IP_LINUX:80 qui est redirigé vers la caméra du haut et ADRESSE_IP_LINUX:90 qui est redirigé vers la caméra du bas. (les caméras étant sur un réseau distinct du réseau de l'école, l'acces à ce dernières se fait donc via l'adresse IP de l'ordinateur sur les ports 80 et 90 pour les caméras du haut et du bas respectivement.)
 - Lancer `ros.launch` décrit ci-après,
 - Configurer un serveur web (Node.js), 
 - Lancer rviz avec sa configuration d'abonnement pré-définie (/map, /pos..). 
+
 
 
 ## `ros.launch` 
@@ -69,13 +69,13 @@ Permet de :
 Permet de lancer : 
 
 - `bringup.launch` (drivers du robot: odométrie, laser, ...)
-- `mapserver` qui permet de récuperer la carte,
-- `amcl` TODO, 
-- `move_base` qui est également un fichier launch permettant de définir des destinations pour le robot et ainsi de le faire se deplacer seule, 
-- une web socket sur le port 9090 permet l'accès à l'interface web avec la carte pour commander le robot à distance (`IP_ROBOT:8080`). Exemple: 10.1.16.57:8080
+- `mapserver` qui permet de récuperer la carte avec ,
+- `amcl` est un module, basé sur l'approche de Monte Carlo, afin de localiser le robot sur une carte en 2D
+- `move_base` qui est également un fichier launch permettant de définir un objectif à atteindre sur une carte en 2D, 
+- une web socket sur le port 9090 permet l'accès au topics ROS, incluant la carte, la position, et les commandes afin de piloter  le robot à distance via son interface web accessible sur le socket `IP_LINUX:8080` (ie http://10.1.16.57:8080 avec la configuration à l'état du commit)
   
 *Remarque*: toutes les configurations réseaux (hors ethernet) se font sur le reseau "robots".
-De plus, pour activer la camera du haut le plug-in QuickTime et safari sont neccesaires. Les flux vidéos ne sont pas recuperés sur Mozzilla. 
+De plus, pour activer la camera du haut le plug-in QuickTime et Safari sont neccesaires. Les flux vidéos ne sont pas recuperés sur Mozzilla. 
  
 ## Répertoire `map`
 
@@ -99,21 +99,21 @@ Rviz : logiciel qui peut s'abonner à des flux pour écouter les topics (/map, /
 On peut juste sauvegarder la liste des paramètres que l'on souhaite afficher mais pas leurs états.
 
 Quelques commandes utiles:
-	- $ rostopic list : affiche la liste des topics de ROS
-	- $ rosrun map_server map_saver -f nom_du_fichier : sauvegarde la carte présente dans le topic /map vers le fichier spécifié
-	- $ rosrun map_server map_server nom_du_fichier.yaml : charge la carte spécifié ( ce programme doit s'executer en continu: s'il meurt, il n'y a plus de carte disponible)
+- $ rostopic list : affiche la liste des topics de ROS
+- $ rosrun map_server map_saver -f nom_du_fichier : sauvegarde la carte présente dans le topic /map vers le fichier spécifié
+- $ rosrun map_server map_server nom_du_fichier.yaml : charge la carte spécifié ( ce programme doit s'executer en continu: s'il meurt, il n'y a plus de carte disponible) 
 	/!\ Une carte correspond au couple des deux fichier map.pgm (image que l'on peut visualier et éditer) et map.yaml. Le fichier .yaml doit bien contenir (dans son contenu) le bon nom du fichier .pgm et la bonne échelle /!\
-	- $ rostopic echo nom_du_topic : affiche le contenu du topic: utile pour vérifier que le robot reçoit bien un objectif sur le topic /move_base/goal
+- $ rostopic echo nom_du_topic : affiche le contenu du topic: utile pour vérifier que le robot reçoit bien un objectif sur le topic /move_base/goal
 
 Pour se déplacer de manière autonome sur la carte, il faut lancer (dans le fichier .launch par exemple) :
-	 + bringup.launch
-	 + map_server map_server a_map.yaml
-	 + amcl pour faire la jonction entre le repère de la carte et le repère du robot
-	 + move_base pour lui spécifier les déplacements
-	 + le publisher pose
+- bringup.launch
+- map_server map_server a_map.yaml
+- amcl pour faire la jonction entre le repère de la carte et le repère du robot
+- move_base pour lui spécifier les déplacements
+- le publisher pose
 
-	et, pour l'application web:
-	 + le websocket (remontée de la connexion sur le client distant)
+et, pour l'application web:
+- le websocket (remontée de la connexion sur le client distant)
 
 ## Répertoire `web`
 
