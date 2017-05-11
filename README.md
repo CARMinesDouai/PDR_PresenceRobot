@@ -15,7 +15,7 @@ Pré-requis :
 - Ubuntu
 - ROS Kinetic
 - Robulab drivers
-- Module Pharo: relie l'ordinateur windows CE a ROS sur le LINUX
+- Module Pharo: relie l'ordinateur windows CE à ROS sur le LINUX
 
 
 TODO
