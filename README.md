@@ -36,6 +36,21 @@ TODO
 # Détails Techniques
 
 Le répertoire `PDR/launcher` contient deux fichiers: `main.sh` et `ros.launch`.
+Pour ce qui est de la configuration réseau, les fichiers à éditer sont :
+- /home/bot/PDR/launcher/main.sh (le début du fichier)
+- /home/bot/PDR/web/app.js (le début du fichier)
+- la configuration machine
+
+Actuellement, le PC doit être connecté à :
+- kompai2 (pour enp0s25 (Ethernet) IP: 192.168.1.32/24)
+- et sur un réseau Wifi (pour le réseau robots, l'adresse IP de la machine est 10.1.16.57, c'est à cette adresse qu'est accessible le site web sur le port non standard, mais presque, 8080)
+
+Pour ce qui est des paramètres du robot :
+- /home/bot/PDR/params/*
+
+Pour ce qui est des topics à lancer ou autres noeuds, les lancements se font dans le fichier :
+- /home/bot/PDR/launcher/ros.launch
+
 
 ## `main.sh`
 
@@ -66,6 +81,9 @@ De plus, pour activer la camera du haut le plug-in QuickTime et safari sont necc
 
 Dans le répertoire map on trouve différentes cartes de l'étage de Lahure permettant de faire des tests sur le robots (et aussi des cartes mofidiées avec un éditeur: repasser en noir des murs, protéger du vide...).
 Ces cartes sont établis à l'aide de Gmapping: roslaunch gmapping.launch. 
+Pour acquérir la carte, il faut executer:
+`$ ~/Pharo-WS/src/robulab_gmapping/launch/gmapping.launch`
+
 
 ## Répertoire `params`
 
@@ -75,6 +93,27 @@ NB: Nous avions des erreurs des trajectoires lors des déplacements du robot ave
 ## Répertoire `rviz`
 
 Le dossier rviz contient la configuration rviz permettant de lancer toutes les options requises ainsi que les abonnements de cette interface graphique pour déplacer le robot (position, trajectoire, "goal"...).
+
+Rviz : logiciel qui peut s'abonner à des flux pour écouter les topics (/map, /pose, etc...) et qui permet donc d'afficher une carte, ou de définir un objectif, ce n'est qu'une interface: il n'y a pas de configuration à faire, aucune donnée n'est enregistrée / enregistrable sur ce programme.
+
+On peut juste sauvegarder la liste des paramètres que l'on souhaite afficher mais pas leurs états.
+
+Quelques commandes utiles:
+	- $ rostopic list : affiche la liste des topics de ROS
+	- $ rosrun map_server map_saver -f nom_du_fichier : sauvegarde la carte présente dans le topic /map vers le fichier spécifié
+	- $ rosrun map_server map_server nom_du_fichier.yaml : charge la carte spécifié ( ce programme doit s'executer en continu: s'il meurt, il n'y a plus de carte disponible)
+	/!\ Une carte correspond au couple des deux fichier map.pgm (image que l'on peut visualier et éditer) et map.yaml. Le fichier .yaml doit bien contenir (dans son contenu) le bon nom du fichier .pgm et la bonne échelle /!\
+	- $ rostopic echo nom_du_topic : affiche le contenu du topic: utile pour vérifier que le robot reçoit bien un objectif sur le topic /move_base/goal
+
+Pour se déplacer de manière autonome sur la carte, il faut lancer (dans le fichier .launch par exemple) :
+	 + bringup.launch
+	 + map_server map_server a_map.yaml
+	 + amcl pour faire la jonction entre le repère de la carte et le repère du robot
+	 + move_base pour lui spécifier les déplacements
+	 + le publisher pose
+
+	et, pour l'application web:
+	 + le websocket (remontée de la connexion sur le client distant)
 
 ## Répertoire `web`
 
