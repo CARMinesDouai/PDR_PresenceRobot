@@ -33,4 +33,14 @@ NB: Nous avions des erreurs des trajectoires lors des déplacements du robot ave
 
 .Le dossier web contient les fichiers de programation de l'interface WEB de contrôle. 
 
+
+Pistes d'améliorations: 
+
+-Scanner l'interieur des salles de cours et rentrer les coordonnées de ces salles dans l'interface graphique pour avoir une gestion complète. 
+-Mettre en place un système d'échange, comme un micro avec des enceintes ou un chat,  pour intéragir avec les gens d'une salle
+-Tester le robot avec de meilleurs cameras 
+-Configurer des deplacements automatiques en relations avec un emploi du temps d'un élève (ce qui necessiterait un connexion utilisateur)
+-Lancer en simultané gmapping avec le scan laser et les déplacements move_base sur la carte pour affiner la carte pendant les deplacements du robot
+
+
 Alexandre Codaccioni/Mathias Delahaye Promotion 2018. 
