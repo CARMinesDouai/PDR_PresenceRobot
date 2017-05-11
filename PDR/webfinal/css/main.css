@@ -1,0 +1,102 @@
+body{
+	background: url(../css/img/background/starwars.jpg) fixed no-repeat;
+	background-size: cover;
+	background-color: transparent;
+	color: #FFFFFF;
+}
+
+.navbar{
+	background-color: rgba(255,255,255,1);
+	box-shadow: 0px 10px 50px #0050FF;
+}
+
+footer{
+	width: 100%;
+	position : fixed;
+	bottom: 0%;
+	background-color: rgba(255,230,230,1);
+	box-shadow: 0 -10px 50px #FF0000;
+	color: #000000;
+}
+
+#page {
+	position: absolute;
+	left: 10%;
+	width: 80%;
+	min-height: 100%;
+	max-width: 100%;
+	background-color: rgba(0, 0, 0, 0.81);
+	box-shadow: 0 10px 30px rgba(255, 0, 224, 0.67);
+	padding-top: 70px;
+	padding-bottom: 100px;
+	color: #FFFFFF;
+}
+
+#div_map, #div_cam_haut, #div_cam_bas {
+	margin-left: 5%;
+	margin-right: 5%;
+	width: 90%;
+}
+
+#viewer {
+	height:90vh;
+	width: 100%;
+	overflow: hidden;
+	background-color: #7F7F7F;
+}
+
+.a_dest, #list_dest{
+	width: 100%;
+	text-align: center;
+}
+
+.main_view{
+	margin-left: 20%;
+	margin-right: 20%;
+	width: 60%;
+	box-shadow: 0 0px 50px rgb(33, 255, 0);
+}
+
+.pad {
+	position: absolute;
+	left: 80%;
+	top: 60%;
+	border-radius: 75px;
+	border: none;
+	background-color: #fff;
+	width: 100px;
+	height: 100px;
+}
+
+.pad div{
+	background: none;
+	box-shadow: none;
+	padding: 0;
+	width: 30px;
+	height: 30px;
+	color: black;
+	text-align: center;
+	position: absolute;
+}
+
+
+.pad div:nth-child(1) {
+	width: 80%;
+	left: 10%;
+	position: absolute;
+}
+.pad div:nth-child(2) {
+	position: absolute;
+	top: 40px;
+}
+.pad div:nth-child(3) {
+	left: 70px;
+	position: absolute;
+	top: 40px;
+}
+.pad div:nth-child(4) {
+	width: 80%;
+	left: 10%;
+	position: absolute;
+	top: 80px;
+}

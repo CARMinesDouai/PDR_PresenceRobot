@@ -1,0 +1,200 @@
+p{
+	text-align:justify;
+}
+.col-80{
+	margin-left: 10%;
+	margin-right: 10%;
+	width: 80%;
+}
+.col-90{
+	margin-left: 5%;
+	margin-right: 5%;
+	width: 90%;	
+}
+.error{
+	font-size: 14pt;
+	color: red;
+}
+
+.success{
+	font-size: 14pt;
+	color: green;
+}
+
+.input_success{
+	border-color: #00FF00;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 255, 0, 0.6);
+}
+.input_error{
+	border-color: #FF0000;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+}
+
+.img_theme{
+	position: relative;
+	top: -15px;
+	width: 50px;
+	height: 50px;
+	box-shadow: 0px 0px 5px #000000;
+	border-radius: 4px;
+}
+
+.theme-row{
+	text-align: left;
+	padding: 20px;
+	height: 70px;
+}
+
+#icon_file{
+	margin-top: 7px;
+	margin-bottom: 12px;
+}
+
+.imgareaselect-handle{
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	border: solid 1px #000000;
+	background-color: #FF0000;
+	border-radius: 2px 2px 2px 2px;
+}
+
+.imgareaselect-outer{
+	background-color: rgba(0,0,0,0.6);
+}
+
+.imgareaselect-border1 {
+	background: url(./border-anim-v.gif) repeat-y left top;
+}
+
+.imgareaselect-border2 {
+	background: url(./border-anim-h.gif) repeat-x left top;
+}
+
+.imgareaselect-border3 {
+	background: url(./border-anim-v.gif) repeat-y right top;
+}
+
+.imgareaselect-border4 {
+	background: url(./border-anim-h.gif) repeat-x left bottom;
+}
+
+.image{
+	width: 100%;
+}
+
+#show_file{
+	border-radius: 4px 0px 0px 4px;
+	height: 47px;
+}
+
+
+#min_page{
+	display: inline;
+	left: 0%;
+}
+#current_page{
+	display: inline;
+}
+#max_page{
+	display: inline;
+	right: 0%;
+}
+
+
+#bs{
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+table{
+	width: 100%;
+	color: #1F1F1F;
+}
+tr{
+	background-color: white;
+	box-shadow: 0 0 5px #000000;
+}
+th{
+	padding: 10px 20px 10px 20px;
+	background-color: white;
+}
+td{
+	padding: 10px 20px 10px 20px;
+	background-color: lightgray;
+}
+textarea{
+	max-width: 100%;
+	min-width: 100%;
+}
+.cloison{
+	max-width: 100%;
+}
+
+.table{
+	left: 5%;
+	right: 5%;
+	width: 90%;
+	position: relative;
+}
+
+footer p{
+	margin: 5px;
+}
+
+#Mention{
+	text-align: center;
+	text-transform: uppercase;
+	text-shadow: 0 0 0.5px #000000;
+}
+
+nav {
+	display: block;
+}
+
+.full-width{
+	width: 100%;
+}
+
+.row{
+	margin-top: 5px;
+}
+
+.profile_img{
+	margin-left: 25%;
+	margin-right: 25%;
+	width: 50%;
+}
+
+.tablerow_img{
+	height: 50px;
+	box-shadow: inset 0px 0px 2px #000000;
+	border-radius: 4px;
+}
+
+.navbar_img{
+	box-shadow: inset 0px 0px 2px #000000;
+	float: left;
+	margin-top: 5px;
+	margin-right: 5px;
+	height: 40px;
+	width: 40px;
+}
+
+.center{
+	text-align: center;
+}
+
+.lab-theme{
+	display: inline;
+	position: absolute;
+	width: 500px;
+	padding-left: 20px;
+}
+
+#camera_bas, #camera_haut {
+	position: relative;
+	margin-left: 15%;
+	margin-right: 15%;
+	width: 70%;
+}
